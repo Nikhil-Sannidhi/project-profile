@@ -78,7 +78,7 @@ export function initNN(root, { skills, goals }) {
     lastW = w;
     const wide = w >= 620;
     const Lw = wide ? 178 : 104;
-    const Rw = wide ? 150 : 98;
+    const Rw = wide ? 150 : 140;
     const gap = wide ? 54 : 46;
     const top = 26;
     const hgt = top * 2 + gap * (skills.length - 1);

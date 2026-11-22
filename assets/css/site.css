@@ -665,3 +665,8 @@ html:not(.ready) .rot-static, .motion-off .rot-static { display: block; }
   .nav, .rail, .fig-chip, .marquee, .toast, .btn-mini { display: none !important; }
   body { background: #fff; }
 }
+
+/* Phones: drop the technical readout from figure title bars so titles aren't truncated */
+@media (max-width: 619px) {
+  .fig-readout { display: none; }
+}
