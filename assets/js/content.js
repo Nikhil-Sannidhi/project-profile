@@ -32,6 +32,8 @@ export const profile = {
     "use data to solve complex problems",
   ],
   interests: ["Data Science", "Machine Learning", "Finance", "Consulting", "Investment Management"],
+  // The small proof chips under the hero buttons.
+  proof: ["Consultant · EntreCORPS", "Consultant · SCNO", "Gies Ambassador", "Frisco, TX → Champaign, IL"],
 };
 
 export const links = {
@@ -172,6 +174,7 @@ export const skills = [
 /*
  * High school (Fig. 6): Independence High School, Frisco ISD, 2022–2026.
  * "split" is the question on the branch; each leaf links to the org.
+ * "label" is the class name printed on the leaf, like a classifier output.
  */
 export const highSchool = {
   name: "Independence High School",
@@ -181,15 +184,15 @@ export const highSchool = {
   logo: "assets/logos/independence-hs.png",
   splits: [
     { question: "business?", leaves: [
-      { name: "DECA", note: "Business & entrepreneurship", logo: "assets/logos/deca.png", url: "https://www.deca.org" },
-      { name: "BPA", note: "Business Professionals of America", logo: "assets/logos/bpa.png", url: "https://bpa.org" },
+      { name: "DECA", label: "deca", note: "Business & entrepreneurship", logo: "assets/logos/deca.png", url: "https://www.deca.org" },
+      { name: "BPA", label: "bpa", note: "Business Professionals of America", logo: "assets/logos/bpa.png", url: "https://bpa.org" },
     ] },
     { question: "service?", leaves: [
-      { name: "Key Club", note: "Student-led service", logo: "assets/logos/keyclub.png", url: "https://www.keyclub.org" },
-      { name: "National Honor Society", note: "Scholarship, service, leadership", logo: "assets/logos/nhs.png", url: "https://www.nationalhonorsociety.org" },
+      { name: "Key Club", label: "key_club", note: "Student-led service", logo: "assets/logos/keyclub.png", url: "https://www.keyclub.org" },
+      { name: "National Honor Society", label: "nhs", note: "Scholarship, service, leadership", logo: "assets/logos/nhs.png", url: "https://www.nationalhonorsociety.org" },
     ] },
     { question: "athletics?", leaves: [
-      { name: "Varsity Tennis", note: "Independence Knights", logo: "assets/logos/independence-hs.png", url: "https://www.friscoisd.org/o/ihs" },
+      { name: "Varsity Tennis", label: "tennis", note: "Independence Knights", logo: "assets/logos/independence-hs.png", url: "https://www.friscoisd.org/o/ihs" },
     ] },
   ],
 };

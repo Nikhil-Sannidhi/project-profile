@@ -32,6 +32,15 @@ export function interests(list) {
   return list.map((t) => `<li>${esc(t)}</li>`).join("");
 }
 
+export function rotator(items) {
+  const list = items.map(esc);
+  const sentence =
+    list.length > 1 ? `${list.slice(0, -1).join(", ")}, and ${list[list.length - 1]}` : list[0] || "";
+  return `<span class="sr-only">I’m interested in how businesses ${sentence}.</span><span class="rot-items" aria-hidden="true">${list
+    .map((t, i) => `<span${i === 0 ? ' class="is-on"' : ""}>${t}.</span>`)
+    .join("")}</span><span class="rot-static" aria-hidden="true">${sentence}.</span>`;
+}
+
 export function stats(list) {
   return list
     .map(
@@ -76,13 +85,15 @@ export function cases(list) {
       return `<article class="case${on ? " is-active" : ""}" id="case-${esc(c.id)}" data-model="${esc(c.model)}" style="--i:${i + 1}">
   <h3 class="case-head"><button class="case-btn" type="button" aria-pressed="${on}" aria-controls="case-${esc(c.id)}-body">
     <span class="case-num">4${n}</span>
-    <span class="case-title"><span class="case-org">${esc(c.short)}</span><span class="case-role">${esc(c.role)}${c.dates ? ` · ${esc(c.dates)}` : ""}</span></span>
+    <span class="case-title"><span class="case-org">${esc(c.short)}</span><span class="case-role">${esc(c.role === c.short ? c.org : c.role)}${c.dates ? ` · ${esc(c.dates)}` : ""}</span></span>
     <span class="case-model">${esc(c.modelName)}</span>
   </button></h3>
   <div class="case-body" id="case-${esc(c.id)}-body">
-    <figure class="figure case-fig">
+    <figure class="case-fig">
+      <div class="frame">
       <div class="fig-bar"><span class="fig-tag">Fig. 4${n} · ${esc(c.modelName)}</span><span class="fig-readout" data-readout aria-hidden="true"></span><button class="btn-mini" type="button" data-replay>Replay <span aria-hidden="true">↻</span></button></div>
       <div class="fig-canvas fig-canvas--case" role="img" aria-label="${esc(LABELS[c.model] || c.modelName)}"><canvas></canvas></div>
+      </div>
       <figcaption>${(CAPTIONS[c.model] || (() => ""))(n)}</figcaption>
     </figure>
     <div class="case-detail">
@@ -93,7 +104,8 @@ export function cases(list) {
   </div>
 </article>`;
     })
-    .join("\n");
+    .join("\n") +
+    `\n<p class="cases-note"><b>Note.</b> The models run on synthetic data. They illustrate the kind of thinking each role involves, not client results. Write-ups are linked from each case.</p>`;
 }
 
 export function skillList(skills, goals) {
@@ -121,7 +133,7 @@ export function tree(hs) {
       .map(
         (l) => `<li data-node="s${gi}-l${k}" style="--k:${k++}">${ext(
           l.url,
-          `${chip(l.logo, "white", "")}<span class="leaf-name">${esc(l.name)}</span><span class="leaf-note">${esc(l.note)}</span><span class="leaf-class">class = ${esc(l.name.split(" ")[0])} <span aria-hidden="true">↗</span></span>`,
+          `${chip(l.logo, "white", "")}<span class="leaf-name">${esc(l.name)}</span><span class="leaf-note">${esc(l.note)}</span><span class="leaf-class">class = ${esc(l.label || l.name)} <span aria-hidden="true">↗</span></span>`,
           "leaf card"
         )}</li>`
       )

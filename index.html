@@ -1,116 +1,424 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nikhil Sannidhi | Involvements</title>
-  <meta name="description" content="My high school and college clubs, teams, leadership roles, and service." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/styles.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Nikhil Sannidhi · Data Science, ML &amp; Finance · Gies '30</title>
+  <meta name="description" content="Nikhil Sannidhi, Gies College of Business (UIUC) class of 2030. Data science and machine learning with a finance edge. A portfolio written as an interactive research paper, with a live model in every figure.">
+  <meta name="theme-color" content="#F7F5F0">
+  <meta name="author" content="Nikhil Sannidhi">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Nikhil Sannidhi · Models of a Career">
+  <meta property="og:description" content="Data science and machine learning, with a finance edge. BBA '30, Gies College of Business, UIUC.">
+  <meta property="og:image" content="assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&amp;display=swap">
+  <link rel="stylesheet" href="assets/css/site.css">
   <script>
-    try { var t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+    (function () {
+      var d = document.documentElement, off = false;
+      d.classList.add("js");
+      try { off = localStorage.getItem("ns-pause") === "1"; } catch (e) {}
+      if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) off = true;
+      d.classList.add(off ? "motion-off" : "motion-ok");
+    })();
   </script>
+  <script defer src="assets/vendor/gsap.min.js"></script>
+  <script defer src="assets/vendor/ScrollTrigger.min.js"></script>
+  <script type="module" src="assets/js/main.js"></script>
 </head>
 <body>
-  <header class="nav">
-    <div class="wrap nav-inner">
-      <a class="brand" href="#top" id="brand">NS</a>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="Nikhil Sannidhi, back to top">
+        <span class="monogram" aria-hidden="true">NS</span>
+        <span class="brand-name" data-c="profile.name">Nikhil Sannidhi</span>
+      </a>
       <nav class="nav-links" aria-label="Sections">
-        <a href="#college">College</a>
+        <div class="figs">
+          <button class="figs-btn" type="button" aria-expanded="false" aria-controls="figs-menu">Figures
+            <svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+          </button>
+          <div class="figs-menu" id="figs-menu" hidden>
+            <p>List of figures</p>
+            <a href="#top"><span>Fig. 1</span>Monte Carlo</a>
+            <a href="#about"><span>Fig. 2</span>Signal: about me</a>
+            <a href="#journey"><span>Fig. 3</span>Gradient descent, Frisco → Champaign</a>
+            <a href="#work"><span>Fig. 4</span>Case studies</a>
+            <a href="#toolkit"><span>Fig. 5</span>Neural network: toolkit</a>
+            <a href="#high-school"><span>Fig. 6</span>Decision tree: high school</a>
+            <a href="#contact"><span>Fig. 7</span>Convergence: contact</a>
+          </div>
+        </div>
+        <a href="#journey">Journey</a>
+        <a href="#work">Work</a>
+        <a href="#toolkit">Toolkit</a>
         <a href="#high-school">High School</a>
-        <a href="#timeline">Timeline</a>
         <a href="#contact">Contact</a>
       </nav>
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
-        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9Z"/></svg>
-      </button>
+      <div class="nav-right">
+        <span class="train-readout" aria-hidden="true">epoch <b>1</b>/100 · loss <b>0.695</b></span>
+        <button class="pause-btn" type="button" aria-pressed="false" title="Pause all animation">
+          <span class="pause-ico" aria-hidden="true"></span><span class="pause-txt">Pause motion</span>
+        </button>
+        <a class="resume-pill" href="assets/Nikhil-Sannidhi-Resume.pdf" data-c-href="links.resume">Résumé</a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mnav"><span></span><b class="sr-only">Menu</b></button>
+      </div>
     </div>
   </header>
+  <nav class="mnav" id="mnav" aria-label="Sections" hidden>
+    <a href="#top"><span>Fig. 1</span>Monte Carlo</a>
+    <a href="#about"><span>Fig. 2</span>About</a>
+    <a href="#journey"><span>Fig. 3</span>Journey</a>
+    <a href="#work"><span>Fig. 4</span>Work</a>
+    <a href="#toolkit"><span>Fig. 5</span>Toolkit</a>
+    <a href="#high-school"><span>Fig. 6</span>High School</a>
+    <a href="#contact"><span>Fig. 7</span>Contact</a>
+    <div class="mnav-foot">
+      <a class="btn btn--primary" href="assets/Nikhil-Sannidhi-Resume.pdf" data-c-href="links.resume">Résumé <span class="tag">PDF</span></a>
+      <a class="btn" href="mailto:nikhil21@illinois.edu" data-c-href="links.emailSchool" data-prefix="mailto:">Email</a>
+    </div>
+  </nav>
+  <div class="rail" aria-hidden="true"><div class="rail-fill"></div></div>
+  <div class="fig-chip" aria-hidden="true"><b class="chip-n">Fig 1</b><span>/ 7</span><span class="sep">·</span><span class="chip-name">Monte Carlo</span></div>
+  <div class="toast" role="status" aria-live="polite"></div>
 
-  <main id="top">
-    <section class="hero">
+  <main id="main">
+    <!-- ============ Fig. 1: hero / Monte Carlo ============ -->
+    <section class="hero" id="top" data-fig="1" data-fig-name="Monte Carlo" aria-labelledby="hero-name">
       <div class="wrap hero-grid">
-        <div>
-          <p class="eyebrow" id="heroEyebrow"></p>
-          <h1 id="heroName"></h1>
-          <p class="tagline" id="heroTagline"></p>
-          <p class="intro" id="heroIntro"></p>
-          <div class="hero-cta">
-            <a class="btn primary" href="#college">See involvements</a>
-            <a class="btn" id="contactBtn" href="#contact">Get in touch</a>
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="live" aria-hidden="true"></span>Working paper · Champaign, IL · 2026</p>
+          <h1 id="hero-name" data-c-name="profile.name">Nikhil <em>Sannidhi</em></h1>
+          <p class="target" data-c="profile.target" data-mark="finance edge">Data science &amp; machine learning, with a <span class="edge">finance edge</span>.</p>
+          <p class="school" data-c="profile.school">BBA '30 · Gies College of Business, UIUC</p>
+          <ul class="chips" aria-label="Highlights" data-render="proof" data-hash="1c9unch">
+            <!--r--><li>Consultant · EntreCORPS</li><li>Consultant · SCNO</li><li>Gies Ambassador</li><li>Frisco, TX → Champaign, IL</li><!--/r-->
+          </ul>
+          <div class="cta">
+            <a class="btn btn--primary magnetic" href="assets/Nikhil-Sannidhi-Resume.pdf" data-c-href="links.resume">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v8m0 0 3.2-3.2M8 10 4.8 6.8M3 13.5h10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              Résumé <span class="tag">PDF</span></a>
+            <a class="btn magnetic" href="mailto:nikhil21@illinois.edu" data-c-href="links.emailSchool" data-prefix="mailto:">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="3.5" width="12" height="9" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="m2.5 4.5 5.5 4 5.5-4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+              Email</a>
+            <a class="btn magnetic" href="https://www.linkedin.com/in/nikhilsannidhi/" data-c-href="links.linkedin" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M3.6 5.6h-2V14h2V5.6ZM2.6 1.9a1.15 1.15 0 1 0 0 2.3 1.15 1.15 0 0 0 0-2.3ZM14.4 9.3c0-2.3-1.2-3.8-3.2-3.8-1 0-1.8.5-2.1 1.1V5.6H7.1V14h2V9.6c0-1.2.4-2.1 1.6-2.1 1.1 0 1.6.8 1.6 2.1V14h2V9.3Z"/></svg>
+              LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+            <a class="btn magnetic" href="https://github.com/Nikhil-Sannidhi" data-c-href="links.github" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 .8a7.2 7.2 0 0 0-2.3 14c.4.1.5-.2.5-.4v-1.3c-2 .4-2.4-.9-2.4-.9-.3-.8-.8-1-.8-1-.7-.5 0-.5 0-.5.7.1 1.1.8 1.1.8.6 1.1 1.7.8 2.1.6.1-.5.3-.8.5-1-1.6-.2-3.3-.8-3.3-3.5 0-.8.3-1.4.7-1.9-.1-.2-.3-.9.1-1.9 0 0 .6-.2 2 .7a6.8 6.8 0 0 1 3.6 0c1.4-.9 2-.7 2-.7.4 1 .2 1.7.1 1.9.5.5.7 1.1.7 1.9 0 2.8-1.7 3.4-3.3 3.5.3.2.5.7.5 1.3v2c0 .2.1.5.5.4A7.2 7.2 0 0 0 8 .8Z"/></svg>
+              GitHub<span class="sr-only"> (opens in a new tab)</span></a>
           </div>
         </div>
-        <div class="portrait" aria-hidden="true">
-          <div class="portrait-ring"><span id="initials"></span></div>
-          <div class="portrait-card">
-            <span class="dot"></span>
-            <div>
-              <strong id="cardSchool"></strong>
-              <small id="cardMajor"></small>
+
+        <figure class="hero-fig">
+          <div class="frame">
+            <div class="fig-bar">
+              <span class="fig-tag">Fig. 1 · Monte Carlo</span>
+              <span class="fig-readout" id="mc-readout">GBM · n = 250 · seed 2030</span>
+              <button class="btn-mini" id="mc-rerun" type="button">Re-run <span aria-hidden="true">↻</span></button>
+            </div>
+            <div class="fig-canvas fig-canvas--hero" id="mc-wrap" role="img" aria-label="Line chart of 250 simulated paths of geometric Brownian motion from 2022 to 2030 on a log scale, all starting at 100. A grey band covering the 5th to 95th percentile widens over time, and an orange median line rises gently.">
+              <canvas id="mc-canvas"></canvas>
+              <div class="fig-tip" id="mc-tip" aria-hidden="true"></div>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="wrap">
-        <dl class="stats" id="stats"></dl>
+          <figcaption><b>Fig. 1 —</b> 250 simulated paths (GBM, μ = 0.08, σ = 0.25). Every path is a possible future; the orange line is the median. Hover (or touch) to read it.</figcaption>
+        </figure>
       </div>
     </section>
 
-    <section class="section" id="college">
+    <div class="marquee" aria-hidden="true" data-render="marquee" data-hash="17ckn89">
+      <!--r--><div class="marquee-track"><div class="marquee-run"><span>Data Science</span><i>/</i><span>Machine Learning</span><i>/</i><span>Monte Carlo</span><i>/</i><span>Regression</span><i>/</i><span>Clustering</span><i>/</i><span>Finance</span><i>/</i><span>Consulting</span><i>/</i><span>Investment Management</span><i>/</i><span>Python</span><i>/</i></div><div class="marquee-run"><span>Data Science</span><i>/</i><span>Machine Learning</span><i>/</i><span>Monte Carlo</span><i>/</i><span>Regression</span><i>/</i><span>Clustering</span><i>/</i><span>Finance</span><i>/</i><span>Consulting</span><i>/</i><span>Investment Management</span><i>/</i><span>Python</span><i>/</i></div></div><!--/r-->
+    </div>
+
+    <!-- ============ Fig. 2: about / signal ============ -->
+    <section class="section about" id="about" data-fig="2" data-fig-name="Signal" aria-labelledby="about-title">
       <div class="wrap">
-        <div class="section-head">
+        <div class="about-grid">
           <div>
-            <p class="eyebrow">College</p>
-            <h2 id="collegeTitle"></h2>
+            <header class="sec-head">
+              <p class="fig-label"><b>Fig. 2</b><span class="rule-dot"></span>About</p>
+              <h2 class="title" id="about-title" data-split>Signal.</h2>
+            </header>
+            <p class="signal-text" data-c="profile.about">I am a freshman in the Gies College of Business at the University of Illinois Urbana-Champaign with interests in finance, consulting, and data-driven business strategy. I am especially interested in understanding how businesses make decisions, evaluate opportunities, and use data to solve complex problems. I hope to continue exploring careers in consulting and investment management.</p>
+            <div class="rotator-line">
+              <p aria-hidden="true">I’m interested in how businesses</p>
+              <p class="rotator" data-render="rotator" data-hash="st1nzk">
+                <!--r--><span class="sr-only">I’m interested in how businesses make decisions, evaluate opportunities, and use data to solve complex problems.</span><span class="rot-items" aria-hidden="true"><span class="is-on">make decisions.</span><span>evaluate opportunities.</span><span>use data to solve complex problems.</span></span><span class="rot-static" aria-hidden="true">make decisions, evaluate opportunities, and use data to solve complex problems.</span><!--/r-->
+              </p>
+            </div>
           </div>
-          <div class="chips" data-for="college" role="group" aria-label="Filter college involvements"></div>
+          <aside class="about-side" aria-label="Summary">
+            <figure class="table-fig" data-reveal="rise">
+              <table class="stats">
+                <caption><b>Table 1.</b> Summary statistics</caption>
+                <tbody data-render="stats" data-hash="lqwk6x">
+                  <!--r--><tr><th scope="row">College roles</th><td><span class="count" data-count="3">3</span></td></tr><tr><th scope="row">High-school organizations</th><td><span class="count" data-count="5">5</span></td></tr><tr><th scope="row">States</th><td><span class="count" data-count="2">2</span></td></tr><tr><th scope="row">Class of</th><td><span class="count" data-count="2030">2030</span></td></tr><!--/r-->
+                </tbody>
+              </table>
+              <p class="stats-note">Every number on this site is a real count.</p>
+            </figure>
+            <div data-reveal="rise" style="--delay: 0.1s">
+              <p class="side-label">Interests</p>
+              <ul class="chips" data-render="interests" data-hash="fuloln">
+                <!--r--><li>Data Science</li><li>Machine Learning</li><li>Finance</li><li>Consulting</li><li>Investment Management</li><!--/r-->
+              </ul>
+            </div>
+            <p class="caption"><b>Fig. 2 —</b> Signal. The words light up as you scroll: reading as denoising. With motion paused, the full text is shown.</p>
+          </aside>
         </div>
-        <div class="cards" id="collegeCards"></div>
       </div>
     </section>
 
-    <section class="section alt" id="high-school">
+    <!-- ============ Fig. 3: journey / gradient descent ============ -->
+    <section class="section journey" id="journey" data-fig="3" data-fig-name="Frisco → Champaign" aria-labelledby="journey-title">
       <div class="wrap">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">High School</p>
-            <h2 id="hsTitle"></h2>
+        <div class="rule" data-n="03 / 07"></div>
+        <div class="journey-stage">
+          <div class="journey-copy">
+            <header class="sec-head">
+              <p class="fig-label"><b>Fig. 3</b><span class="rule-dot"></span>Journey</p>
+              <h2 class="title" id="journey-title" data-split>Gradient descent, <em>Frisco → Champaign.</em></h2>
+              <p class="lede">Four years at Independence High School in Frisco, Texas, then north-east to Champaign. Each card is one iteration toward the goal.</p>
+            </header>
+            <ol class="milestones" data-render="journey" data-hash="1y1t35a">
+              <!--r--><li class="ms" data-i="0">
+  <span class="ms-iter" aria-hidden="true">iter 01</span>
+  <span class="logo-chip logo-chip--white"><img src="assets/logos/independence-hs.png" alt="" loading="lazy" decoding="async"></span>
+  <span class="ms-text"><span class="ms-title">Independence High School</span><span class="ms-sub">Frisco ISD · Frisco, TX</span></span>
+  <span class="pill">2022–2026</span>
+</li>
+<li class="ms" data-i="1">
+  <span class="ms-iter" aria-hidden="true">iter 02</span>
+  <span class="logo-chip logo-chip--white"><img src="assets/logos/illinois.png" alt="" loading="lazy" decoding="async"></span>
+  <span class="ms-text"><span class="ms-title">Gies College of Business</span><span class="ms-sub">BBA, Business Undeclared · UIUC</span></span>
+  <span class="pill">2026–2030</span>
+</li>
+<li class="ms" data-i="2">
+  <span class="ms-iter" aria-hidden="true">iter 03</span>
+  <span class="logo-chip logo-chip--navy"><img src="assets/logos/entrecorps.png" alt="" loading="lazy" decoding="async"></span>
+  <span class="ms-text"><span class="ms-title">Consultant, EntreCORPS</span><span class="ms-sub">Consulting for Startups</span></span>
+  <span class="pill">Sep 2026–</span>
+</li>
+<li class="ms" data-i="3">
+  <span class="ms-iter" aria-hidden="true">iter 04</span>
+  <span class="logo-chip logo-chip--white"><img src="assets/logos/scno.png" alt="" loading="lazy" decoding="async"></span>
+  <span class="ms-text"><span class="ms-title">Consultant, SCNO</span><span class="ms-sub">Consulting for Nonprofit Organizations</span></span>
+  <span class="pill">Sep 2026–</span>
+</li>
+<li class="ms" data-i="4">
+  <span class="ms-iter" aria-hidden="true">iter 05</span>
+  <span class="logo-chip logo-chip--white"><img src="assets/logos/gies.png" alt="" loading="lazy" decoding="async"></span>
+  <span class="ms-text"><span class="ms-title">Gies Ambassador</span><span class="ms-sub">Tours, panels and recruitment events</span></span>
+  
+</li><!--/r-->
+            </ol>
           </div>
-          <div class="chips" data-for="highSchool" role="group" aria-label="Filter high school involvements"></div>
+          <figure class="map-fig">
+            <div class="frame map-frame" role="img" aria-label="Map of the central and eastern United States with Texas and Illinois shaded. An orange route zig-zags from Frisco, Texas to Champaign, Illinois like gradient-descent steps, crossing dashed contour lines of a loss function centered on Champaign.">
+              <img src="assets/data/us-states.svg" alt="" width="640" height="480" decoding="async">
+              <svg class="route" aria-hidden="true" focusable="false"></svg>
+              <span class="map-chip" aria-hidden="true">Frisco <span class="sep">→</span> Champaign <span class="sep">·</span> <span data-miles>≈ 680 mi</span></span>
+              <span class="map-legend" aria-hidden="true"><i></i>descent path<br><i class="c"></i>loss contours</span>
+            </div>
+            <figcaption><b>Fig. 3 —</b> Plain gradient descent on an ill-conditioned quadratic loss whose minimum is Champaign (step size η = 0.125, curvatures 1 and 14.4). The steep direction overshoots and zig-zags; the shallow one creeps in. Albers USA projection.</figcaption>
+          </figure>
         </div>
-        <div class="cards" id="highSchoolCards"></div>
       </div>
     </section>
 
-    <section class="section" id="timeline">
+    <!-- ============ Fig. 4: work / case studies ============ -->
+    <section class="section work" id="work" data-fig="4" data-fig-name="Work" aria-labelledby="work-title">
       <div class="wrap">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">Timeline</p>
-            <h2 id="timelineTitle">Leadership over the years</h2>
-          </div>
+        <div class="rule" data-n="04 / 07"></div>
+        <header class="sec-head">
+          <p class="fig-label"><b>Fig. 4</b><span class="rule-dot"></span>Work</p>
+          <h2 class="title" id="work-title" data-split>Case studies. <em>Select a case to run its model.</em></h2>
+          <p class="lede">Three roles at Illinois, each paired with a model that captures the shape of the work.</p>
+        </header>
+        <div class="cases" data-render="cases" data-hash="3eztj1">
+          <!--r--><article class="case is-active" id="case-entrecorps" data-model="logistic" style="--i:1">
+  <h3 class="case-head"><button class="case-btn" type="button" aria-pressed="true" aria-controls="case-entrecorps-body">
+    <span class="case-num">4a</span>
+    <span class="case-title"><span class="case-org">EntreCORPS</span><span class="case-role">Consultant · Sep 2026 – Present</span></span>
+    <span class="case-model">Logistic growth fit</span>
+  </button></h3>
+  <div class="case-body" id="case-entrecorps-body">
+    <figure class="case-fig">
+      <div class="frame">
+      <div class="fig-bar"><span class="fig-tag">Fig. 4a · Logistic growth fit</span><span class="fig-readout" data-readout aria-hidden="true"></span><button class="btn-mini" type="button" data-replay>Replay <span aria-hidden="true">↻</span></button></div>
+      <div class="fig-canvas fig-canvas--case" role="img" aria-label="Animated chart: synthetic adoption data points with a logistic S-curve converging onto them over successive gradient-descent iterations."><canvas></canvas></div>
+      </div>
+      <figcaption><b>Fig. 4a —</b> A logistic S-curve, <i>y</i> = <i>L</i> / (1 + e<sup>−<i>k</i>(<i>t</i> − <i>t</i><sub>0</sub>)</sup>), fitted to 40 synthetic adoption points by gradient descent (Adam). Faint curves are earlier iterations.</figcaption>
+    </figure>
+    <div class="case-detail">
+      <div class="case-who"><span class="logo-chip logo-chip--navy"><img src="assets/logos/entrecorps.png" alt="EntreCORPS logo" loading="lazy" decoding="async"></span><p><strong>Consultant</strong>, EntreCORPS | Consulting for Startups<span class="mono">Sep 2026 – Present · Champaign, IL · On-site</span></p></div>
+      <p class="case-blurb">A student-run, pro bono growth and innovation consulting firm at Gies, part of the Origin Ventures Academy for Entrepreneurial Leadership. It advises startups and early-stage ventures. <span class="case-note">Startups live on S-curves: slow adoption, take-off, saturation.</span></p>
+      <p class="case-links"><a class="link-arrow" href="work/entrecorps.html">Read the case study <span aria-hidden="true">→</span></a><a class="link-quiet" href="https://giesgroups.illinois.edu/entrecorps/home/" target="_blank" rel="noopener noreferrer">EntreCORPS site <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></p>
+    </div>
+  </div>
+</article>
+<article class="case" id="case-scno" data-model="kmeans" style="--i:2">
+  <h3 class="case-head"><button class="case-btn" type="button" aria-pressed="false" aria-controls="case-scno-body">
+    <span class="case-num">4b</span>
+    <span class="case-title"><span class="case-org">SCNO</span><span class="case-role">Consultant · Sep 2026 – Present</span></span>
+    <span class="case-model">k-means clustering</span>
+  </button></h3>
+  <div class="case-body" id="case-scno-body">
+    <figure class="case-fig">
+      <div class="frame">
+      <div class="fig-bar"><span class="fig-tag">Fig. 4b · k-means clustering</span><span class="fig-readout" data-readout aria-hidden="true"></span><button class="btn-mini" type="button" data-replay>Replay <span aria-hidden="true">↻</span></button></div>
+      <div class="fig-canvas fig-canvas--case" role="img" aria-label="Animated chart: scattered points that k-means groups into three colored clusters as the cluster centers move and settle."><canvas></canvas></div>
+      </div>
+      <figcaption><b>Fig. 4b —</b> Lloyd’s k-means (<i>k</i> = 3) on 120 synthetic points. Each centroid (+) moves to the mean of its cluster until the assignments stop changing.</figcaption>
+    </figure>
+    <div class="case-detail">
+      <div class="case-who"><span class="logo-chip logo-chip--white"><img src="assets/logos/scno.png" alt="SCNO logo" loading="lazy" decoding="async"></span><p><strong>Consultant</strong>, Illinois Students Consulting for Nonprofit Organizations<span class="mono">Sep 2026 – Present · Champaign, IL · On-site</span></p></div>
+      <p class="case-blurb">A student-led organization providing free consulting to nonprofits in Champaign-Urbana and beyond. <span class="case-note">Different groups need different strategies. Clustering finds the groups.</span></p>
+      <p class="case-links"><a class="link-arrow" href="work/scno.html">Read the case study <span aria-hidden="true">→</span></a><a class="link-quiet" href="https://giesgroups.illinois.edu/SCNO/club_signup" target="_blank" rel="noopener noreferrer">SCNO site <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></p>
+    </div>
+  </div>
+</article>
+<article class="case" id="case-gies-ambassador" data-model="network" style="--i:3">
+  <h3 class="case-head"><button class="case-btn" type="button" aria-pressed="false" aria-controls="case-gies-ambassador-body">
+    <span class="case-num">4c</span>
+    <span class="case-title"><span class="case-org">Gies Ambassador</span><span class="case-role">Gies College of Business</span></span>
+    <span class="case-model">Force-directed network</span>
+  </button></h3>
+  <div class="case-body" id="case-gies-ambassador-body">
+    <figure class="case-fig">
+      <div class="frame">
+      <div class="fig-bar"><span class="fig-tag">Fig. 4c · Force-directed network</span><span class="fig-readout" data-readout aria-hidden="true"></span><button class="btn-mini" type="button" data-replay>Replay <span aria-hidden="true">↻</span></button></div>
+      <div class="fig-canvas fig-canvas--case" role="img" aria-label="Animated chart: a network of nodes, representing people, connecting by springs and settling into a stable layout."><canvas></canvas></div>
+      </div>
+      <figcaption><b>Fig. 4c —</b> A force-directed graph: springs pull connected people together, charge pushes everyone apart, and the layout settles into communities.</figcaption>
+    </figure>
+    <div class="case-detail">
+      <div class="case-who"><span class="logo-chip logo-chip--white"><img src="assets/logos/gies.png" alt="Gies Ambassador logo" loading="lazy" decoding="async"></span><p><strong>Gies Ambassador</strong>, Gies College of Business<span class="mono">Champaign, IL</span></p></div>
+      <p class="case-blurb">Ambassadors represent Gies to prospective and admitted students and families through meetings, tours, student panels and recruitment events. <span class="case-note">One conversation at a time, people connect.</span></p>
+      <p class="case-links"><a class="link-arrow" href="work/gies-ambassador.html">Read the case study <span aria-hidden="true">→</span></a><a class="link-quiet" href="https://giesbusiness.illinois.edu" target="_blank" rel="noopener noreferrer">Gies site <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></p>
+    </div>
+  </div>
+</article>
+<p class="cases-note"><b>Note.</b> The models run on synthetic data. They illustrate the kind of thinking each role involves, not client results. Write-ups are linked from each case.</p><!--/r-->
         </div>
-        <ol class="timeline" id="timelineList"></ol>
       </div>
     </section>
 
-    <section class="section contact" id="contact">
-      <div class="wrap contact-inner">
-        <h2>Let's connect</h2>
-        <p>Interested in something I've worked on, or want to collaborate? I'd love to hear from you.</p>
-        <a class="btn primary" id="emailBtn" href="#"></a>
-        <ul class="links" id="linkList"></ul>
+    <!-- ============ Fig. 5: toolkit / neural network ============ -->
+    <section class="section toolkit" id="toolkit" data-fig="5" data-fig-name="Toolkit" aria-labelledby="toolkit-title">
+      <div class="wrap">
+        <div class="rule" data-n="05 / 07"></div>
+        <header class="sec-head">
+          <p class="fig-label"><b>Fig. 5</b><span class="rule-dot"></span>Toolkit</p>
+          <h2 class="title" id="toolkit-title" data-split>Neural network.</h2>
+          <p class="lede">Skills in, goals out. Hover, tap or focus a node to run a forward pass through the trained weights.</p>
+        </header>
+        <figure class="nn" data-reveal="scale">
+          <div class="frame nn-frame">
+            <div class="fig-bar">
+              <span class="fig-tag">Fig. 5 · Feed-forward network</span>
+              <span class="fig-readout" data-nn-loss>6 → 5 → 4</span>
+            </div>
+            <div class="nn-svg"></div>
+            <p class="nn-note" aria-live="polite">Hover, tap or focus a skill to run a forward pass. <span class="nn-note-sub">Orange edges carry the signal; line weight shows |w|.</span></p>
+          </div>
+          <ul class="nn-fallback" data-render="skills" data-hash="j10qjp">
+            <!--r--><li><strong>Python (learning)</strong>: feeds Data Science, Machine Learning.</li><li><strong>Excel / Microsoft Office</strong>: feeds Finance, Consulting.</li><li><strong>Data Analysis</strong>: feeds Data Science, Finance.</li><li><strong>Research</strong>: feeds Consulting, Data Science.</li><li><strong>Leadership</strong>: feeds Consulting, Finance.</li><li><strong>Communication</strong>: feeds Consulting, Finance.</li><!--/r-->
+          </ul>
+          <figcaption><b>Fig. 5 —</b> A 6-5-4 network (tanh hidden layer, sigmoid outputs) trained in your browser by gradient descent on a hand-labelled skill-to-goal relevance table. Line weight is |w|; dashed edges are negative weights.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ Fig. 6: high school / decision tree ============ -->
+    <section class="section highschool" id="high-school" data-fig="6" data-fig-name="High School" aria-labelledby="hs-title">
+      <div class="wrap">
+        <div class="rule" data-n="06 / 07"></div>
+        <header class="sec-head">
+          <p class="fig-label"><b>Fig. 6</b><span class="rule-dot"></span>High school</p>
+          <h2 class="title" id="hs-title" data-split>Decision tree.</h2>
+          <p class="lede">Independence High School, Frisco ISD, 2022–2026. Five organizations, split the way a classifier would split them.</p>
+        </header>
+        <figure class="tree-fig">
+          <div class="tree" data-render="tree" data-hash="84n6b9">
+            <!--r--><svg class="tree-wires" aria-hidden="true" focusable="false"></svg>
+  <div class="tree-root" data-node="root"><span class="logo-chip logo-chip--white"><img src="assets/logos/independence-hs.png" alt="" loading="lazy" decoding="async"></span><span><span class="tree-title">Independence High School</span><span class="mono">Frisco ISD · 2022–2026</span></span><span class="tree-samples">samples = 5</span></div>
+  <div class="tree-groups"><div class="tree-group" style="--n:2">
+    <div class="tree-split" data-node="s0"><span class="mono">business?</span><span class="tree-samples">samples = 2</span></div>
+    <ul class="tree-leaves"><li data-node="s0-l0" style="--k:0"><a class="leaf card" href="https://www.deca.org" target="_blank" rel="noopener noreferrer"><span class="logo-chip logo-chip--white"><img src="assets/logos/deca.png" alt="" loading="lazy" decoding="async"></span><span class="leaf-name">DECA</span><span class="leaf-note">Business &amp; entrepreneurship</span><span class="leaf-class">class = deca <span aria-hidden="true">↗</span></span><span class="sr-only"> (opens in a new tab)</span></a></li><li data-node="s0-l1" style="--k:1"><a class="leaf card" href="https://bpa.org" target="_blank" rel="noopener noreferrer"><span class="logo-chip logo-chip--white"><img src="assets/logos/bpa.png" alt="" loading="lazy" decoding="async"></span><span class="leaf-name">BPA</span><span class="leaf-note">Business Professionals of America</span><span class="leaf-class">class = bpa <span aria-hidden="true">↗</span></span><span class="sr-only"> (opens in a new tab)</span></a></li></ul>
+  </div>
+<div class="tree-group" style="--n:2">
+    <div class="tree-split" data-node="s1"><span class="mono">service?</span><span class="tree-samples">samples = 2</span></div>
+    <ul class="tree-leaves"><li data-node="s1-l2" style="--k:2"><a class="leaf card" href="https://www.keyclub.org" target="_blank" rel="noopener noreferrer"><span class="logo-chip logo-chip--white"><img src="assets/logos/keyclub.png" alt="" loading="lazy" decoding="async"></span><span class="leaf-name">Key Club</span><span class="leaf-note">Student-led service</span><span class="leaf-class">class = key_club <span aria-hidden="true">↗</span></span><span class="sr-only"> (opens in a new tab)</span></a></li><li data-node="s1-l3" style="--k:3"><a class="leaf card" href="https://www.nationalhonorsociety.org" target="_blank" rel="noopener noreferrer"><span class="logo-chip logo-chip--white"><img src="assets/logos/nhs.png" alt="" loading="lazy" decoding="async"></span><span class="leaf-name">National Honor Society</span><span class="leaf-note">Scholarship, service, leadership</span><span class="leaf-class">class = nhs <span aria-hidden="true">↗</span></span><span class="sr-only"> (opens in a new tab)</span></a></li></ul>
+  </div>
+<div class="tree-group" style="--n:1">
+    <div class="tree-split" data-node="s2"><span class="mono">athletics?</span><span class="tree-samples">samples = 1</span></div>
+    <ul class="tree-leaves"><li data-node="s2-l4" style="--k:4"><a class="leaf card" href="https://www.friscoisd.org/o/ihs" target="_blank" rel="noopener noreferrer"><span class="logo-chip logo-chip--white"><img src="assets/logos/independence-hs.png" alt="" loading="lazy" decoding="async"></span><span class="leaf-name">Varsity Tennis</span><span class="leaf-note">Independence Knights</span><span class="leaf-class">class = tennis <span aria-hidden="true">↗</span></span><span class="sr-only"> (opens in a new tab)</span></a></li></ul>
+  </div></div><!--/r-->
+          </div>
+          <figcaption><b>Fig. 6 —</b> One question per branch. Every leaf is pure (a single organization), so each leaf’s Gini impurity is 0. Select a leaf to visit the organization.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ Fig. 7: contact / convergence ============ -->
+    <section class="section contact" id="contact" data-fig="7" data-fig-name="Contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <div class="rule" data-n="07 / 07"></div>
+        <div class="contact-grid">
+          <div>
+            <header class="sec-head">
+              <p class="fig-label"><b>Fig. 7</b><span class="rule-dot"></span>Contact</p>
+              <h2 class="title" id="contact-title" data-split>Let’s talk.</h2>
+              <p class="lede">Happy to talk about consulting, data science, investment management or Gies. My Illinois email is the fastest way to reach me.</p>
+            </header>
+            <figure class="bridge-fig" data-reveal="clip">
+              <div class="frame">
+                <div class="fig-bar">
+                  <span class="fig-tag">Fig. 7 · Convergence</span>
+                  <span class="fig-readout">Brownian bridge · n = 120</span>
+                  <button class="btn-mini" id="bridge-replay" type="button">Replay <span aria-hidden="true">↻</span></button>
+                </div>
+                <div class="fig-canvas fig-canvas--bridge" role="img" aria-label="Chart of 120 random paths that start far apart on the left and all converge to a single orange point on the right; the shaded confidence band narrows to that point.">
+                  <canvas id="bridge-canvas"></canvas>
+                </div>
+              </div>
+              <figcaption><b>Fig. 7 —</b> Convergence. 120 Brownian bridges start far apart and are pinned to one endpoint, so the band narrows to a point as t → T.</figcaption>
+            </figure>
+          </div>
+          <ul class="contact-cards" data-render="contact" data-hash="cnu344">
+            <!--r--><li class="ccard card ccard--primary"><span class="ccard-label">School email · primary</span><a class="ccard-main" href="mailto:nikhil21@illinois.edu">nikhil21@illinois.edu</a><button class="btn-mini copy" type="button" data-copy="nikhil21@illinois.edu">Copy<span class="sr-only"> nikhil21@illinois.edu</span></button></li>
+<li class="ccard card"><span class="ccard-label">Personal email</span><a class="ccard-main" href="mailto:nikhilsannidhi11@gmail.com">nikhilsannidhi11@gmail.com</a><button class="btn-mini copy" type="button" data-copy="nikhilsannidhi11@gmail.com">Copy<span class="sr-only"> nikhilsannidhi11@gmail.com</span></button></li>
+<li class="ccard card"><span class="ccard-label">LinkedIn</span><a class="ccard-main" href="https://www.linkedin.com/in/nikhilsannidhi/" target="_blank" rel="noopener noreferrer">linkedin.com/in/nikhilsannidhi <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></li>
+<li class="ccard card"><span class="ccard-label">GitHub</span><a class="ccard-main" href="https://github.com/Nikhil-Sannidhi" target="_blank" rel="noopener noreferrer">github.com/Nikhil-Sannidhi <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></li>
+<li class="ccard card"><span class="ccard-label">Résumé</span><a class="ccard-main" href="assets/Nikhil-Sannidhi-Resume.pdf">Download PDF <span aria-hidden="true">↓</span></a></li><!--/r-->
+          </ul>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="wrap"><span id="footerText"></span></div>
+    <div class="wrap footer-grid">
+      <div>
+        <p class="colophon">Designed and built from scratch by Nikhil Sannidhi · HTML, CSS, JavaScript, Canvas · <a href="https://github.com/Nikhil-Sannidhi/project-profile" data-c-href="links.source" target="_blank" rel="noopener noreferrer">View source on GitHub<span class="sr-only"> (opens in a new tab)</span></a></p>
+        <p class="mono-small">Set in Newsreader, Inter and JetBrains Mono · Map: us-atlas, Albers USA · Animation: GSAP · Logos are trademarks of their owners.</p>
+      </div>
+      <nav class="footer-links" aria-label="Contact links">
+        <a href="mailto:nikhil21@illinois.edu" data-c-href="links.emailSchool" data-prefix="mailto:">Email</a>
+        <a href="https://www.linkedin.com/in/nikhilsannidhi/" data-c-href="links.linkedin" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+        <a href="https://github.com/Nikhil-Sannidhi" data-c-href="links.github" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in a new tab)</span></a>
+        <a href="assets/Nikhil-Sannidhi-Resume.pdf" data-c-href="links.resume">Résumé</a>
+        <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
+      </nav>
+    </div>
   </footer>
-
-  <script src="assets/content.js"></script>
-  <script src="assets/app.js"></script>
 </body>
 </html>
