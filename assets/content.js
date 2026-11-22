@@ -32,7 +32,7 @@ window.PROFILE = {
   location: "Urbana-Champaign, IL",
   email: "",          // e.g. "nikhil@example.com"
   links: [
-    // { label: "LinkedIn", url: "https://www.linkedin.com/in/your-handle" },
+    { label: "LinkedIn", url: "https://www.linkedin.com/in/nikhilsannidhi/" },
     // { label: "Résumé (PDF)", url: "resume.pdf" },
   ],
 };
