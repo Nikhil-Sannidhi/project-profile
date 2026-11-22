@@ -1,183 +1,83 @@
 /*
  * ─────────────────────────────────────────────────────────────
- *  EDIT THIS FILE to make the site yours.
+ *  EDIT THIS FILE to update the site.
  *  Everything on the page is generated from the data below.
- *  Replace the sample entries with your real involvements.
  * ─────────────────────────────────────────────────────────────
  *
  *  Fields for each involvement:
  *    org          Organization / club / team name
  *    role         Your title or position
- *    start, end   Display dates, e.g. "Sep 2023", "Present"
- *    category     One of: Leadership, Academic, Athletics, Service, Arts, Tech
+ *    start, end   Optional display dates, e.g. "Sep 2024", "Present"
+ *                 (adding dates turns on the Timeline section)
+ *    category     Consulting, Outreach, Leadership, Academic, Athletics, Service, Arts, Tech
  *    leader       true if this was a leadership position (counts in the stats)
  *    hours        Optional – service/volunteer hours (summed in the stats)
  *    summary      One or two sentences about what you did
- *    highlights   Bullet points: wins, results, things you built or led
+ *    highlights   Bullet points – replace with your own projects, clients and results
+ *
+ *  Empty sections (e.g. highSchool: []) and empty contact details are hidden.
  */
 
 window.PROFILE = {
-  name: "Your Name",
-  tagline: "Student, builder, and community organizer",
+  name: "Nikhil Sannidhi",
+  tagline: "Student consultant at the University of Illinois Urbana-Champaign",
   intro:
-    "A record of the clubs, teams, and causes I've been part of from high school through college, what I did in each, and what I learned along the way.",
-  college: "State University",
-  major: "B.S. Computer Science",
-  gradYear: "2027",
-  highSchool: "Lincoln High School",
-  hsGradYear: "2023",
-  location: "Your City, ST",
-  email: "you@example.com",
+    "I'm a student at the University of Illinois Urbana-Champaign. Outside the classroom I do pro bono consulting for startups and nonprofits and represent the Gies College of Business to prospective students and families.",
+  college: "University of Illinois Urbana-Champaign",
+  major: "",          // e.g. "B.S. Finance"
+  gradYear: "",       // e.g. "2028"
+  collegeStartYear: "", // e.g. "2024"
+  highSchool: "",
+  hsGradYear: "",
+  location: "Urbana-Champaign, IL",
+  email: "",          // e.g. "nikhil@example.com"
   links: [
-    { label: "LinkedIn", url: "https://www.linkedin.com/" },
-    { label: "GitHub", url: "https://github.com/" },
-    { label: "Résumé (PDF)", url: "#" },
+    // { label: "LinkedIn", url: "https://www.linkedin.com/in/your-handle" },
+    // { label: "Résumé (PDF)", url: "resume.pdf" },
   ],
 };
 
 window.INVOLVEMENTS = {
   college: [
     {
-      org: "Student Government Association",
-      role: "Academic Affairs Senator",
-      start: "Sep 2024",
-      end: "Present",
-      category: "Leadership",
-      leader: true,
-      summary:
-        "Represent 2,400 engineering students on the senate and chair the academic affairs committee.",
-      highlights: [
-        "Led a campaign that extended library hours to 24/7 during finals",
-        "Wrote and passed a resolution funding free printing for first-years",
-        "Run monthly open forums between students and department chairs",
-      ],
-    },
-    {
-      org: "Association for Computing Machinery (ACM)",
-      role: "Vice President",
-      start: "Jan 2024",
-      end: "Present",
-      category: "Tech",
-      leader: true,
-      summary:
-        "Help run the largest tech club on campus: weekly workshops, interview prep, and industry talks.",
-      highlights: [
-        "Grew weekly workshop attendance from 25 to 90+",
-        "Organized a 300-person, 24-hour hackathon with $8K in sponsorships",
-        "Started a mock-interview program pairing juniors with alumni",
-      ],
-    },
-    {
-      org: "Campus Peer Tutoring Center",
-      role: "Calculus & Intro CS Tutor",
-      start: "Sep 2023",
-      end: "Present",
-      category: "Academic",
+      org: "EntreCorps",
+      role: "Consultant",
+      category: "Consulting",
       leader: false,
-      hours: 180,
       summary:
-        "Hold drop-in and one-on-one sessions for students in Calculus I–II and Intro to Programming.",
+        "Student-run, pro bono growth and innovation consulting firm at Gies, part of the Origin Ventures Academy for Entrepreneurial Leadership, advising startups and early-stage ventures.",
       highlights: [
-        "Tutored 150+ students across four semesters",
-        "Built a practice-problem bank now used by all CS tutors",
+        "Work on client projects with startups and early-stage ventures",
+        "Help with growth strategy, market research, and innovation problems",
       ],
     },
     {
-      org: "Habitat for Humanity – Campus Chapter",
-      role: "Build Team Volunteer",
-      start: "Oct 2023",
-      end: "Present",
-      category: "Service",
+      org: "Students Consulting for Non-Profit Organizations (SCNO)",
+      role: "Consultant",
+      category: "Consulting",
       leader: false,
-      hours: 120,
-      summary: "Volunteer on weekend home builds and the annual spring-break build trip.",
+      summary:
+        "Student-led consulting organization that provides free consulting services to nonprofits in Champaign-Urbana and beyond.",
       highlights: [
-        "Helped complete three homes for local families",
-        "Coordinated carpools and tools for a 20-person build day",
+        "Work on pro bono consulting engagements for nonprofit clients",
+        "Turn research and analysis into recommendations clients can act on",
       ],
     },
     {
-      org: "Intramural Soccer",
-      role: "Team Captain",
-      start: "Sep 2023",
-      end: "Present",
-      category: "Athletics",
-      leader: true,
-      summary: "Captain a co-ed intramural team that plays fall and spring seasons.",
-      highlights: ["League champions, Spring 2025", "Recruited and organized a 16-player roster"],
+      org: "Gies College of Business",
+      role: "Gies Ambassador",
+      category: "Outreach",
+      leader: false,
+      summary:
+        "Represent the Gies College of Business to prospective and admitted students and their families.",
+      highlights: [
+        "Meet with prospective and admitted students and families",
+        "Lead tours and serve on student panels",
+        "Support Gies recruitment and admissions events",
+      ],
     },
   ],
 
-  highSchool: [
-    {
-      org: "FIRST Robotics Team",
-      role: "Team Captain & Lead Programmer",
-      start: "Sep 2020",
-      end: "May 2023",
-      category: "Tech",
-      leader: true,
-      summary:
-        "Led a 30-member team designing, building, and programming a competition robot each season.",
-      highlights: [
-        "Regional finalists two years in a row",
-        "Wrote the autonomous routine that scored our highest-ever match",
-        "Mentored middle-school students at a summer robotics camp",
-      ],
-    },
-    {
-      org: "National Honor Society",
-      role: "Chapter President",
-      start: "Sep 2021",
-      end: "May 2023",
-      category: "Leadership",
-      leader: true,
-      hours: 90,
-      summary: "Ran meetings, service projects, and the peer tutoring program for 85 members.",
-      highlights: [
-        "Organized a school-wide food drive that collected 4,000 lbs",
-        "Launched free after-school homework help for underclassmen",
-      ],
-    },
-    {
-      org: "Varsity Tennis",
-      role: "Varsity Player",
-      start: "Mar 2020",
-      end: "May 2023",
-      category: "Athletics",
-      leader: false,
-      summary: "Four-year member, playing first doubles my junior and senior years.",
-      highlights: ["All-Conference Second Team, 2022", "Team Sportsmanship Award, 2023"],
-    },
-    {
-      org: "Model United Nations",
-      role: "Delegate",
-      start: "Sep 2020",
-      end: "May 2022",
-      category: "Academic",
-      leader: false,
-      summary: "Represented assigned countries at regional and state conferences.",
-      highlights: ["Best Delegate, State MUN Conference 2022", "Honorable Mention, Regional MUN 2021"],
-    },
-    {
-      org: "Jazz Band",
-      role: "Alto Saxophone",
-      start: "Sep 2019",
-      end: "May 2021",
-      category: "Arts",
-      leader: false,
-      summary: "Performed at school concerts, community events, and the district jazz festival.",
-      highlights: ["Superior rating at District Jazz Festival 2021"],
-    },
-    {
-      org: "Local Public Library",
-      role: "Teen Volunteer",
-      start: "Jun 2019",
-      end: "Aug 2022",
-      category: "Service",
-      leader: false,
-      hours: 140,
-      summary: "Helped run the summer reading program and taught weekly basic-computer classes for seniors.",
-      highlights: ["Taught 40+ seniors to use email and video calls"],
-    },
-  ],
+  // Add high school involvements here – the section appears automatically.
+  highSchool: [],
 };

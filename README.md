@@ -1,6 +1,6 @@
 # Involvements Profile Site
 
-A one-page personal website showing my high school and college involvements: clubs, teams, leadership roles, and volunteer work.
+A one-page personal website for Nikhil Sannidhi showing college and high school involvements: consulting, ambassador roles, clubs, and service.
 
 ## Edit your content
 
