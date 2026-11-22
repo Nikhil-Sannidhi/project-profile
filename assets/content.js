@@ -9,7 +9,7 @@
  *    role         Your title or position
  *    start, end   Optional display dates, e.g. "Sep 2024", "Present"
  *                 (adding dates turns on the Timeline section)
- *    category     Consulting, Outreach, Leadership, Academic, Athletics, Service, Arts, Tech
+ *    category     Consulting, Outreach, Business, Leadership, Academic, Athletics, Service, Arts, Tech
  *    leader       true if this was a leadership position (counts in the stats)
  *    hours        Optional – service/volunteer hours (summed in the stats)
  *    summary      One or two sentences about what you did
@@ -20,64 +20,98 @@
 
 window.PROFILE = {
   name: "Nikhil Sannidhi",
-  tagline: "Student consultant at the University of Illinois Urbana-Champaign",
+  tagline: "Student at Gies College of Business: finance, consulting, and data-driven strategy",
   intro:
-    "I'm a student at the University of Illinois Urbana-Champaign. Outside the classroom I do pro bono consulting for startups and nonprofits and represent the Gies College of Business to prospective students and families.",
+    "I am a freshman in the Gies College of Business at the University of Illinois Urbana-Champaign with interests in finance, consulting, and data-driven business strategy. I am especially interested in understanding how businesses make decisions, evaluate opportunities, and use data to solve complex problems. I hope to continue exploring careers in consulting and investment management.",
   college: "University of Illinois Urbana-Champaign",
-  major: "",          // e.g. "B.S. Finance"
-  gradYear: "",       // e.g. "2028"
-  collegeStartYear: "", // e.g. "2024"
-  highSchool: "",
-  hsGradYear: "",
-  location: "Urbana-Champaign, IL",
-  email: "",          // e.g. "nikhil@example.com"
+  collegeShort: "Gies College of Business",
+  major: "BBA, Business Undeclared",
+  gradYear: "2030",
+  collegeStartYear: "2026",
+  highSchool: "Independence High School",
+  hsGradYear: "2026",
+  location: "From Frisco, Texas",
+  email: "nikhil21@illinois.edu",
   links: [
     { label: "LinkedIn", url: "https://www.linkedin.com/in/nikhilsannidhi/" },
-    // { label: "Résumé (PDF)", url: "resume.pdf" },
   ],
 };
 
 window.INVOLVEMENTS = {
   college: [
     {
-      org: "EntreCorps",
+      org: "EntreCORPS | Consulting for Startups",
       role: "Consultant",
+      start: "Sep 2026",
+      end: "Present",
       category: "Consulting",
       leader: false,
       summary:
-        "Student-run, pro bono growth and innovation consulting firm at Gies, part of the Origin Ventures Academy for Entrepreneurial Leadership, advising startups and early-stage ventures.",
-      highlights: [
-        "Work on client projects with startups and early-stage ventures",
-        "Help with growth strategy, market research, and innovation problems",
-      ],
+        "Student-run, pro bono consulting firm at Gies, part of the Origin Ventures Academy for Entrepreneurial Leadership, that advises startups and early-stage ventures. On-site in Champaign, Illinois.",
+      highlights: [],
     },
     {
-      org: "Students Consulting for Non-Profit Organizations (SCNO)",
+      org: "Illinois Students Consulting for Nonprofit Organizations (SCNO)",
       role: "Consultant",
+      start: "Sep 2026",
+      end: "Present",
       category: "Consulting",
       leader: false,
       summary:
-        "Student-led consulting organization that provides free consulting services to nonprofits in Champaign-Urbana and beyond.",
-      highlights: [
-        "Work on pro bono consulting engagements for nonprofit clients",
-        "Turn research and analysis into recommendations clients can act on",
-      ],
+        "Student-led consulting organization that provides free consulting to nonprofits in Champaign-Urbana and beyond. On-site in Champaign, Illinois.",
+      highlights: [],
     },
     {
-      org: "Gies College of Business",
+      org: "Gies Ambassadors",
       role: "Gies Ambassador",
       category: "Outreach",
       leader: false,
       summary:
         "Represent the Gies College of Business to prospective and admitted students and their families.",
-      highlights: [
-        "Meet with prospective and admitted students and families",
-        "Lead tours and serve on student panels",
-        "Support Gies recruitment and admissions events",
-      ],
+      highlights: [],
     },
   ],
 
-  // Add high school involvements here – the section appears automatically.
-  highSchool: [],
+  highSchool: [
+    {
+      org: "National Honor Society",
+      role: "Member",
+      category: "Leadership",
+      leader: false,
+      summary: "Honor society recognizing scholarship, leadership, service, and character.",
+      highlights: [],
+    },
+    {
+      org: "DECA",
+      role: "Member",
+      category: "Business",
+      leader: false,
+      summary: "Competitive business organization for marketing, finance, and management.",
+      highlights: [],
+    },
+    {
+      org: "Business Professionals of America (BPA)",
+      role: "Member",
+      category: "Business",
+      leader: false,
+      summary: "Career and leadership competitions for students interested in business.",
+      highlights: [],
+    },
+    {
+      org: "Key Club",
+      role: "Member",
+      category: "Service",
+      leader: false,
+      summary: "Student-led service organization focused on community volunteering.",
+      highlights: [],
+    },
+    {
+      org: "Varsity Tennis",
+      role: "Team Member",
+      category: "Athletics",
+      leader: false,
+      summary: "Member of the Independence High School varsity tennis team.",
+      highlights: [],
+    },
+  ],
 };

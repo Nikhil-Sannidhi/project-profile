@@ -1,6 +1,6 @@
 # Involvements Profile Site
 
-A one-page personal website for Nikhil Sannidhi showing college and high school involvements: consulting, ambassador roles, clubs, and service.
+A one-page personal website for Nikhil Sannidhi (Gies College of Business, UIUC) showing college and high school involvements.
 
 ## Edit your content
 

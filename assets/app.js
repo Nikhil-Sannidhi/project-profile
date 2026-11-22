@@ -20,6 +20,7 @@
     Arts: '<path d="M9 3v11.6A3.5 3.5 0 1 0 11 18V8h7V3H9Z"/>',
     Tech: '<path d="M8.6 16.6 4 12l4.6-4.6L7.2 6 1.2 12l6 6 1.4-1.4Zm6.8 0L20 12l-4.6-4.6L16.8 6l6 6-6 6-1.4-1.4Z"/>',
     Consulting: '<path d="M9 3h6a2 2 0 0 1 2 2v2h3a2 2 0 0 1 2 2v4h-9v-1h-2v1H2V9a2 2 0 0 1 2-2h3V5a2 2 0 0 1 2-2Zm0 4h6V5H9v2Zm-7 8h9v1h2v-1h9v4a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-4Z"/>',
+    Business: '<path d="M4 19h16v2H4zM6 10h3v7H6zm5-4h3v11h-3zm5 7h3v4h-3z"/>',
     Outreach: '<path d="M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm8 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM1 20c0-3.3 3.6-6 8-6s8 2.7 8 6v1H1v-1Zm17.5 1v-1c0-1.9-.8-3.6-2.1-4.9 3.6.3 6.6 2.4 6.6 4.9v1h-4.5Z"/>',
   };
   const icon = (cat) =>
@@ -30,12 +31,12 @@
   document.title = `${P.name} | Involvements`;
   $("brand").textContent = initials;
   $("initials").textContent = initials;
-  $("heroEyebrow").textContent = join(P.college, P.gradYear && `Class of ${P.gradYear}`);
+  $("heroEyebrow").textContent = join(P.collegeShort, P.college, P.location);
   $("heroName").textContent = P.name;
   $("heroTagline").textContent = P.tagline;
   $("heroIntro").textContent = P.intro;
-  $("cardSchool").textContent = P.college;
-  $("cardMajor").textContent = join(P.major, P.location);
+  $("cardSchool").textContent = P.collegeShort || P.college;
+  $("cardMajor").textContent = join(P.major, P.gradYear && `Class of ${P.gradYear}`);
   $("collegeTitle").textContent =
     P.collegeStartYear && P.gradYear ? `${P.college}, ${P.collegeStartYear}–${P.gradYear}` : P.college;
   $("hsTitle").textContent = join(P.highSchool, P.hsGradYear && `Class of ${P.hsGradYear}`);
@@ -100,7 +101,7 @@
   ].filter((x) => year(x.start));
   const leaders = dated.filter((x) => x.leader);
   const tl = (leaders.length ? leaders : dated).sort((a, b) => year(b.start) - year(a.start));
-  if (!tl.length) hideSection("timeline");
+  if (new Set(tl.map((x) => year(x.start))).size < 2) hideSection("timeline");
   else {
     $("timelineTitle").textContent = leaders.length ? "Leadership over the years" : "Over the years";
     $("timelineList").innerHTML = tl

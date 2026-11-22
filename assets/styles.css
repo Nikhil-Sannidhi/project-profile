@@ -16,6 +16,7 @@
   --c-arts: #6b3fa0;       --c-arts-bg: #ece3f6;
   --c-tech: #0f6b78;       --c-tech-bg: #dcf0f2;
   --c-consulting: #7a4b1e; --c-consulting-bg: #f6e7d6;
+  --c-business: #1d4f91;   --c-business-bg: #e1eaf7;
   --c-outreach: #b2462a;   --c-outreach-bg: #fbe3da;
   color-scheme: light;
 }
@@ -31,6 +32,7 @@
     --c-arts: #c5a5ef;       --c-arts-bg: #2f2442;
     --c-tech: #7fd3de;       --c-tech-bg: #173a3f;
     --c-consulting: #e8b98a; --c-consulting-bg: #3b2a1a;
+    --c-business: #9cc0f0;   --c-business-bg: #1c2d45;
     --c-outreach: #f3a58f;   --c-outreach-bg: #40221a;
     color-scheme: dark;
   }
@@ -45,6 +47,7 @@
   --c-service: #f19bb0;    --c-service-bg: #42202a;
   --c-arts: #c5a5ef;       --c-arts-bg: #2f2442;
   --c-tech: #7fd3de;       --c-tech-bg: #173a3f;
+  --c-business: #9cc0f0;   --c-business-bg: #1c2d45;
   --c-consulting: #e8b98a; --c-consulting-bg: #3b2a1a;
   --c-outreach: #f3a58f;   --c-outreach-bg: #40221a;
   color-scheme: dark;
@@ -175,3 +178,4 @@ a { color: var(--accent); }
 [hidden] { display: none !important; }
 .stats { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
 @media (max-width: 860px) { .stats { grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 10px; } .stats div { padding: 14px; } .stats dd { font-size: 28px; } }
+.cat-business { color: var(--c-business); background: var(--c-business-bg); }
