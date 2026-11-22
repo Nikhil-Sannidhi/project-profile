@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Involvements | Your Name</title>
+  <meta name="description" content="My high school and college clubs, teams, leadership roles, and service." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <script>
+    try { var t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top" id="brand">YN</a>
+      <nav class="nav-links" aria-label="Sections">
+        <a href="#college">College</a>
+        <a href="#high-school">High School</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9Z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow" id="heroEyebrow"></p>
+          <h1 id="heroName"></h1>
+          <p class="tagline" id="heroTagline"></p>
+          <p class="intro" id="heroIntro"></p>
+          <div class="hero-cta">
+            <a class="btn primary" href="#college">See involvements</a>
+            <a class="btn" href="#contact">Get in touch</a>
+          </div>
+        </div>
+        <div class="portrait" aria-hidden="true">
+          <div class="portrait-ring"><span id="initials"></span></div>
+          <div class="portrait-card">
+            <span class="dot"></span>
+            <div>
+              <strong id="cardSchool"></strong>
+              <small id="cardMajor"></small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <dl class="stats" id="stats"></dl>
+      </div>
+    </section>
+
+    <section class="section" id="college">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">College</p>
+            <h2 id="collegeTitle"></h2>
+          </div>
+          <div class="chips" data-for="college" role="group" aria-label="Filter college involvements"></div>
+        </div>
+        <div class="cards" id="collegeCards"></div>
+      </div>
+    </section>
+
+    <section class="section alt" id="high-school">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">High School</p>
+            <h2 id="hsTitle"></h2>
+          </div>
+          <div class="chips" data-for="highSchool" role="group" aria-label="Filter high school involvements"></div>
+        </div>
+        <div class="cards" id="highSchoolCards"></div>
+      </div>
+    </section>
+
+    <section class="section" id="timeline">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Timeline</p>
+            <h2>Leadership over the years</h2>
+          </div>
+        </div>
+        <ol class="timeline" id="timelineList"></ol>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="wrap contact-inner">
+        <h2>Let's connect</h2>
+        <p>Interested in something I've worked on, or want to collaborate? I'd love to hear from you.</p>
+        <a class="btn primary" id="emailBtn" href="#"></a>
+        <ul class="links" id="linkList"></ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap"><span id="footerText"></span></div>
+  </footer>
+
+  <script src="assets/content.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
